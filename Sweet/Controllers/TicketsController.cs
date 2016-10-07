@@ -13,9 +13,10 @@ namespace Sweet.Controllers
             _dbContext = new ApplicationDbContext();
         }
         // GET: Tickets
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var tickets = _dbContext.Tickets.ToList();
+
             return View(tickets);
         }
         public ActionResult New()
