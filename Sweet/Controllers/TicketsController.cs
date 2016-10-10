@@ -1,7 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 using Sweet.Models;
-
+using System;
+using System.Web.UI.WebControls;
+using System.Web;
 namespace Sweet.Controllers
 {
     public class TicketsController : Controller
@@ -13,7 +16,7 @@ namespace Sweet.Controllers
             _dbContext = new ApplicationDbContext();
         }
         // GET: Tickets
-        public ActionResult Index(string searchString)
+        public ActionResult Index()
         {
             var tickets = _dbContext.Tickets.ToList();
 
@@ -77,6 +80,11 @@ namespace Sweet.Controllers
             _dbContext.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
